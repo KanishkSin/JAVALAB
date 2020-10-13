@@ -14,7 +14,7 @@ class club
     System.out.println("Enter the name of the Club Manager\n");
     String club_man = sc.nextLine();
     String[] players = new String[16];
-    System.out.println("Enter the name of the players\n");
+    System.out.println("Enter the name of the players\n");//After adding players, how should i add or remove players by user input?
     for(int i = 0; i < players.length; i++)
     {
       players[i] = sc.nextLine();
