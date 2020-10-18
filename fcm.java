@@ -64,63 +64,71 @@ class modify_club extends club
     System.out.println(list1);
   }
 }
-
 class fcm
 {
-  //Scanner sc = new Scanner(System.in);
-
-  // public static void menu1() {
-  //   System.out.println("MENU\n" + "1.Create a new club\n" + "2.Modify an existing club\n" + "3.Exit\n" + "Enter your choice:");
-  //   int ch = sc.nextInt();
-  //
-  //   switch (ch) {
-  //     case 1:
-	// 			club obj = new club();
-  //       obj.display();
-  //       break;
-  //     case 2:
-  //       menu_op2();
-  //       break;
-  //     case 3:
-  //       return;
-  //
-  //     default:
-  //       System.out.println("Invalid Choice!");
-  //   }
-  // }
-  // public static void menu2() {
-  //   Scanner sc = new Scanner(System.in);
-  //   int ch = sc.nextInt();
-  //   switch (ch) {
-  //     case 1: // remove_player();
-  //       System.out.println("hello");
-  //       break;
-  //     // case 2 : ();
-  //     // break;
-  //     // case 3 : ();
-  //     // break;
-  //     // case 4 : return;
-  //
-  //     default:
-  //       System.out.println("Invalid Choice!");
-  //   }
-  // }
-
-  public static void main(String[] args)
+  public static void pres_login()
   {
-		Scanner sc = new Scanner(System.in);
-    System.out.println("Enter Club ID:");
-    int ch = sc.nextInt();
-		club obj = new club(ch - 1);
-    for(int i = 0; i < obj.club_id.length; i++)
+    club obj = new club();
+    Scanner sc = new Scanner(System.in);
+    String password = "myclub777!";
+    System.out.println("Enter Username: ");
+    String username = sc.nextLine();
+    System.out.println("Enter Password: ");
+    String pass = sc.nextLine();
+    if(username.equals(obj.club_pres[obj.token]) && pass.equals(password))
     {
-      if(ch == obj.club_id[i])
-      obj.display();
-      modify_club obj1 = new modify_club();
-      obj1.remove_player();
-      obj1.add_player();
+      System.out.println("Access Granted! Welcome " + username +"! \n");
+
+    }
+    else
+    {
+      System.out.println("Invalid Credentials!");
     }
   }
+  public static void man_login()
+  {
+    club obj = new club();
+    Scanner sc = new Scanner(System.in);
+    String password1 = "myclub777!";
+    System.out.println("Enter Username: ");
+    String username1 = sc.nextLine();
+    System.out.println("Enter Password: ");
+    String pass1 = sc.nextLine();
+    if(username1.equals(obj.club_man[obj.token]) && pass1.equals(password1))
+    {
+      System.out.println("Access Granted! Welcome " + username1 +"! \n");
+    }
+    else
+    {
+      System.out.println("Invalid Credentials!");
+    }
+  }
+  public static void main(String[] args)
+  {
+    club obj = new club();
+    Scanner sc = new Scanner(System.in);
+    System.out.println("LOGIN");
+    System.out.println("1.Club President");
+    System.out.println("2.CLub Manager");
+    int ch = sc.nextInt();
+    switch(ch)
+    {
+      case 1:pres_login();
+              break;
+      case 2:man_login();
+              break;
+    }
+    // System.out.println("Enter Club ID:");
+    // int ch = sc.nextInt();
+		// club obj = new club(ch - 1);
+    // for(int i = 0; i < obj.club_id.length; i++)
+    // {
+    //   if(ch == obj.club_id[i])
+    //   obj.display();
+       //modify_club obj1 = new modify_club();
+    //   obj1.remove_player();
+    //   obj1.add_player();
+    //}
+
+  }
 }
-//}
-//  }
