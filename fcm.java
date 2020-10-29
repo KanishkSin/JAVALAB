@@ -42,25 +42,31 @@ class club
 class modify_club extends club
 {
   Scanner sc = new Scanner(System.in);
-  public void remove_player()
+  public void remove_player(int x)
   {
+    List<String> list = new ArrayList<String>();
     this.club_plyrs = club_plyrs;
+    for (int i = (x)*11; i < (x+1)*11; i++)
+    {
+      list.add(club_plyrs[i]);
+    }
     System.out.println("Enter the name of the player you want to remove: ");
     String rem = sc.nextLine();
-    List<String> list = new ArrayList<String>(Arrays.asList(club_plyrs));
     list.remove(rem);
-    club_plyrs = list.toArray(new String[0]);
     System.out.println(list);
   }
 
-  public void add_player()
+  public void add_player(int x)
   {
+    List<String> list1 = new ArrayList<String>();
     this.club_plyrs = club_plyrs;
+    for (int i = (x)*11; i < (x+1)*11; i++)
+    {
+      list1.add(club_plyrs[i]);
+    }
     System.out.println("Enter the name of the player you want to add: ");
     String add = sc.nextLine();
-    List<String> list1 = new ArrayList<String>(Arrays.asList(club_plyrs));
     list1.add(add);
-    club_plyrs = list1.toArray(new String[0]);
     System.out.println(list1);
   }
 }
@@ -98,9 +104,9 @@ class fcm
                     break;
             case 2:
                     break;
-            case 3:obj1.add_player();
+            case 3:obj1.add_player(i);
                     break;
-            case 4:obj1.remove_player();
+            case 4:obj1.remove_player(i);
                     break;
             case 5:return;
             default:System.out.println("Invald choice!");
@@ -116,6 +122,7 @@ class fcm
   public static void man_login()
   {
     club obj = new club();
+    modify_club obj1 = new modify_club();
     Scanner sc = new Scanner(System.in);
     String password1 = "777";
     System.out.println("Enter Username: ");
@@ -139,9 +146,9 @@ class fcm
         {
           case 1:obj.display(i);
                   break;
-          case 2:obj1.add_player();
+          case 2:obj1.add_player(i);
                   break;
-          case 3:obj1.remove_player();
+          case 3:obj1.remove_player(i);
                   break;
           case 4:return;
           default:System.out.println("Invald choice!");
@@ -171,17 +178,5 @@ class fcm
       case 3:return;
       default:System.out.println("Invald choice!");
     }
-    // System.out.println("Enter Club ID:");
-    // int ch = sc.nextInt();
-		// club obj = new club(ch - 1);
-    // for(int i = 0; i < obj.club_id.length; i++)
-    // {
-    //   if(ch == obj.club_id[i])
-    //   obj.display();
-       //modify_club obj1 = new modify_club();
-    //   obj1.remove_player();
-    //   obj1.add_player();
-    //}
-
   }
 }
