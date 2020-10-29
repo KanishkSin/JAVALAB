@@ -26,9 +26,9 @@ class club
     token = id;
   }
 
-  public void display()
+  public void display(int token)
   {
-    System.out.println("Club ID: " + this.club_id[token]);
+    System.out.println("Club ID: " + club_id[token]);
     System.out.println("Club Name: " + this.club_nm[token]);
     System.out.println("Club President: " + this.club_pres[token]);
     System.out.println("Club Manager: " + this.club_man[token]);
@@ -69,18 +69,46 @@ class fcm
   public static void pres_login()
   {
     club obj = new club();
+    modify_club obj1 = new modify_club();
     Scanner sc = new Scanner(System.in);
-    String password = "myclub777!";
+    String password = "777";
     System.out.println("Enter Username: ");
     String username = sc.nextLine();
     System.out.println("Enter Password: ");
     String pass = sc.nextLine();
-    if(username.equals(obj.club_pres[obj.token]) && pass.equals(password))
+    int count = 0;
+    for(int i = 0; i < obj.club_pres.length; i++)
     {
-      System.out.println("Access Granted! Welcome " + username +"! \n");
-
+      if(username.equals(obj.club_pres[i]) && pass.equals(password))
+      {
+        count = 1;
+        System.out.println("Access Granted! Welcome " + username +"! \n\n");
+        while (true)
+        {
+          System.out.println("MENU");
+          System.out.println("1.Display Club Status");
+          System.out.println("2.Change the Club Manager");
+          System.out.println("3.Add a player");
+          System.out.println("4.Remove a player");
+          System.out.println("5.Exit");
+          int ch1 = sc.nextInt();
+          switch(ch1)
+          {
+            case 1:obj.display(i);
+                    break;
+            case 2:
+                    break;
+            case 3:obj1.add_player();
+                    break;
+            case 4:obj1.remove_player();
+                    break;
+            case 5:return;
+            default:System.out.println("Invald choice!");
+          }
+        }
+      }
     }
-    else
+    if(count == 0)
     {
       System.out.println("Invalid Credentials!");
     }
@@ -89,16 +117,38 @@ class fcm
   {
     club obj = new club();
     Scanner sc = new Scanner(System.in);
-    String password1 = "myclub777!";
+    String password1 = "777";
     System.out.println("Enter Username: ");
     String username1 = sc.nextLine();
     System.out.println("Enter Password: ");
     String pass1 = sc.nextLine();
-    if(username1.equals(obj.club_man[obj.token]) && pass1.equals(password1))
+    int count = 0;
+    for(int i = 0; i < obj.club_man.length; i++)
     {
-      System.out.println("Access Granted! Welcome " + username1 +"! \n");
+      if(username1.equals(obj.club_man[i]) && pass1.equals(password1))
+      {
+        count = 1;
+        System.out.println("Access Granted! Welcome " + username1 +"! \n\n");
+        System.out.println("MENU");
+        System.out.println("1.Display Club Status");
+        System.out.println("2.Add a player");
+        System.out.println("3.Remove a player");
+        System.out.println("4.Exit");
+        int ch2 = sc.nextInt();
+        switch(ch2)
+        {
+          case 1:obj.display(i);
+                  break;
+          case 2:obj1.add_player();
+                  break;
+          case 3:obj1.remove_player();
+                  break;
+          case 4:return;
+          default:System.out.println("Invald choice!");
+        }
+      }
     }
-    else
+    if(count == 0)
     {
       System.out.println("Invalid Credentials!");
     }
@@ -110,6 +160,7 @@ class fcm
     System.out.println("LOGIN");
     System.out.println("1.Club President");
     System.out.println("2.CLub Manager");
+    System.out.println("3.Exit");
     int ch = sc.nextInt();
     switch(ch)
     {
@@ -117,6 +168,8 @@ class fcm
               break;
       case 2:man_login();
               break;
+      case 3:return;
+      default:System.out.println("Invald choice!");
     }
     // System.out.println("Enter Club ID:");
     // int ch = sc.nextInt();
