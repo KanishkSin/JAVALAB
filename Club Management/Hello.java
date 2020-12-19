@@ -1,4 +1,4 @@
-package precursor.sportsmanagementproject;
+package clubmanagement;
 
 import java.awt.BorderLayout;
 
