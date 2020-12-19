@@ -1,4 +1,4 @@
-package precursor.sportsmanagementproject;
+package clubmanagement.games;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
