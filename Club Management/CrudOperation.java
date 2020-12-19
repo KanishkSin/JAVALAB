@@ -1,4 +1,4 @@
-package precursor.dbinfo;
+package clubmanagement;
 import java.sql.*;
 public class CrudOperation
 {
